@@ -1,27 +1,20 @@
 // ** React Imports
-import { SyntheticEvent, useState } from 'react'
+import React, { SyntheticEvent, useState } from 'react';
 
 // ** MUI Imports
-import Box from '@mui/material/Box'
-import Card from '@mui/material/Card'
-import TabList from '@mui/lab/TabList'
-import TabPanel from '@mui/lab/TabPanel'
-import TabContext from '@mui/lab/TabContext'
-import { styled } from '@mui/material/styles'
-import MuiTab, { TabProps } from '@mui/material/Tab'
-
-// ** Icons Imports
-import AccountOutline from 'mdi-material-ui/AccountOutline'
-import LockOpenOutline from 'mdi-material-ui/LockOpenOutline'
-import InformationOutline from 'mdi-material-ui/InformationOutline'
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import TabContext from '@mui/lab/TabContext';
+import { styled } from '@mui/material/styles';
+import MuiTab, { TabProps } from '@mui/material/Tab';
+import Icon from '@mui/material/Icon';
 
 // ** Demo Tabs Imports
-import TabInfo from 'src/views/account-settings/TabInfo'
-import TabAccount from 'src/views/account-settings/TabAccount'
-import TabSecurity from 'src/views/account-settings/TabSecurity'
-
-// ** Third Party Styles Imports
-import 'react-datepicker/dist/react-datepicker.css'
+import TabInfo from 'src/views/account-settings/TabInfo';
+import TabAccount from 'src/views/account-settings/TabAccount';
+import TabSecurity from 'src/views/account-settings/TabSecurity';
 
 const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
@@ -30,7 +23,7 @@ const Tab = styled(MuiTab)<TabProps>(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     minWidth: 67
   }
-}))
+}));
 
 const TabName = styled('span')(({ theme }) => ({
   lineHeight: 1.71,
@@ -39,15 +32,15 @@ const TabName = styled('span')(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     display: 'none'
   }
-}))
+}));
 
 const AccountSettings = () => {
   // ** State
-  const [value, setValue] = useState<string>('account')
+  const [value, setValue] = useState<string>('account');
 
   const handleChange = (event: SyntheticEvent, newValue: string) => {
-    setValue(newValue)
-  }
+    setValue(newValue);
+  };
 
   return (
     <Card>
@@ -61,7 +54,7 @@ const AccountSettings = () => {
             value='account'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <AccountOutline />
+                <Icon>account_outline</Icon>
                 <TabName>Account</TabName>
               </Box>
             }
@@ -70,7 +63,7 @@ const AccountSettings = () => {
             value='security'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <LockOpenOutline />
+                <Icon>lock_open_outline</Icon>
                 <TabName>Security</TabName>
               </Box>
             }
@@ -79,7 +72,7 @@ const AccountSettings = () => {
             value='info'
             label={
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <InformationOutline />
+                <Icon>information_outline</Icon>
                 <TabName>Info</TabName>
               </Box>
             }
@@ -97,7 +90,7 @@ const AccountSettings = () => {
         </TabPanel>
       </TabContext>
     </Card>
-  )
-}
+  );
+};
 
-export default AccountSettings
+export default AccountSettings;
